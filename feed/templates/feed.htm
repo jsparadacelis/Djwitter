@@ -10,8 +10,9 @@
     <h1>Hola mundo</h1>
     {% for t in feed %}
         <div>
-            <h3>{{t.user}}</h3>
-            <p>{{t.text}}</p>
+            <h3>{{t.perfil.user}}</h3>
+            <p>{{t.texto}}</p>
+            <p>{{t.f_escrito}}</p>
         </div>
     {% endfor %}
 </body>
