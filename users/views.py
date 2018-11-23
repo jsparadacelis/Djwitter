@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from .models import Perfil
+from feed.models import Post
 
 # Create your views here.
 def login_view(request):
@@ -16,3 +18,18 @@ def login_view(request):
            pass
 
     return render(request, 'login.html')
+
+def view_profile(request, id):
+    profile = Perfil.objects.get(id=id)
+    
+    tweets = Post.objects.filter(perfil_id = id)
+
+    return render(
+        request, 
+        'users/profile.html', 
+        {
+            "id" : profile.id,
+            "name" : profile.user.username,
+            "tweets_arr" : tweets
+        }
+    )

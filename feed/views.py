@@ -7,26 +7,15 @@ from users.models import Perfil
 from django.shortcuts import render, redirect
 from .forms import TweetForm
 
-# Create your views here.
-tweets = [
-    {
-        "user":"neftali",
-        "text":"Mi tweet"
-    },
-    {
-        "user":"mcguegi",
-        "text":"My tweet"
-    }
-]
 
 def hello_world(request):
     tweets = Post.objects.all()
     print(tweets)
     return render(
         request,
-        "feed.html",
+        "posts/feed.html",
         {
-            "feed":tweets
+            "tweets_arr":tweets
         }
     )
 
