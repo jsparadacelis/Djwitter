@@ -1,0 +1,10 @@
+.tweet-container {
+    border: 1px #ccc solid;
+    border-radius: 6px;
+    padding: 7px;
+    margin: 5px;
+}
+.row {
+    margin-right: 0px !important; 
+    margin-left: 0px !important;   
+}

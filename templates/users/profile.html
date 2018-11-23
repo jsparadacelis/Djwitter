@@ -7,12 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-        <input type="text" name="username">
-        <input type="password" name="password">
-        <button type="submit">Sign in</button>
-    </form>
+
+        {% include 'feed.html' %}
+       
     
+
 </body>
 </html>

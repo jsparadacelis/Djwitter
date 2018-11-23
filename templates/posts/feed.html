@@ -7,36 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-   <style>
-        .tweet-container{
-            border: 1px #ccc solid;
-            border-radius: 6px;
-            padding: 7px;
-            margin: 5px;
-        }
-   </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/feed.css' %}">
     <title>Document</title>
 </head>
 
 <body>
+    {% include "nav.html" %}
     <div class="row">
         <div class="container">
-            <div class="col-lg-8 offset-2">
-                <h1>Hola mundo</h1>
-                {% for t in feed %}
-                <div class="tweet-container">
-                    <h3>{{t.perfil.user}}</h3>
-                    <p>{{t.texto}}</p>
-                    <p>{{t.f_escrito}}</p>
-                </div>
-                {% endfor %}
-                <form action="{% url 'send_tweet' %}" method="POST">
+           {% include "feed.html" %}
+            <form action="{% url 'send_tweet' %}" method="POST">
                     {% csrf_token %}
                     <label for="content">Your tweet: </label>
                     <textarea name="content" id="" cols="30" rows="10"></textarea>
                     <button type="submit">Enviar</button>
                 </form>
-            </div>
 
         </div>
 
