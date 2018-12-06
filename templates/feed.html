@@ -1,9 +1,0 @@
-<div class="col-lg-8 offset-2">           
-        {% for t in tweets_arr %}
-        <div class="tweet-container">
-            <a href="{% url 'profile' t.perfil.user.id %}"><h3>{{t.perfil.user.username}} </h3></a>    
-            <p>{{t.texto}}</p>
-            <p>{{t.f_escrito}}</p>
-        </div>
-        {% endfor %}
-</div>
