@@ -3,6 +3,6 @@ from .models import Perfil
 
 # Register your models here.
 class PerfilAdmin(admin.ModelAdmin):
-    fields = ['user', 'bio','f_nacimiento']
+    fields = ['user','bio','f_nacimiento','foto_perfil']
 
 admin.site.register(Perfil, PerfilAdmin)

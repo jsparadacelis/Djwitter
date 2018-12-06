@@ -1,16 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-        {% include 'feed.html' %}
-       
-    
+{% block content %}
 
-</body>
-</html>
+<div class="row">
+    <div class="container">
+        <div class="col-md-4" style="float:left">
+            <img src="{{profile.foto_perfil.url}}" alt="">
+            <h3>{{profile.user.username}}</h3>
+            <span>
+                {{profile.bio}}
+            </span>
+
+        </div>
+        <div  style="float:left">
+            {% include 'posts/feed.html' %}
+        </div>
+            
+
+    </div>
+
+</div>
+
+{% endblock content %}

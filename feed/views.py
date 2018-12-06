@@ -22,7 +22,6 @@ class list_tweets(ListView):
 
 def send_tweet(request):
     
-    print(request.user.perfil)
     if request.method == 'POST':
         form = TweetForm(request.POST)
         if form.is_valid():

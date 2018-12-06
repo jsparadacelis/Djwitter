@@ -6,7 +6,9 @@
         <div class="col-lg-8 offset-2">
             {% for tweet in list_tweets %}
             <div class="tweet-container">
-                <h3>{{tweet.perfil.user.username}} </h3></a>
+                <a href="{% url 'profile' tweet.perfil.id %}">
+                    <h3>{{tweet.perfil.user.username}}</h3>
+                </a> 
                 <p>{{tweet.texto}}</p>
                 <p>{{tweet.f_escrito}}</p>
             </div>

@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Post
+from .models import Tweet
 
 # Register your models here.
-class PostAdmin(admin.ModelAdmin):
+class TweetAdmin(admin.ModelAdmin):
     fields = ['perfil','texto']
 
-admin.site.register(Post, PostAdmin)
+admin.site.register(Tweet, TweetAdmin)
