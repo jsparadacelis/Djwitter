@@ -7,18 +7,17 @@ from users.models import Perfil
 from django.shortcuts import render, redirect
 from .forms import TweetForm
 
+from django.views.generic.list import ListView
 
-def hello_world(request):
-    tweets = Post.objects.all()
-    print(tweets)
-    return render(
-        request,
-        "posts/feed.html",
-        {
-            "tweets_arr":tweets
-        }
-    )
+#Lista todo los tweets
+class list_tweets(ListView):
 
+    #Nombre de la plantilla para la vista
+    template_name = "posts/feed.html"
+    #Modelo del cual se van a extraer los datos
+    model = Post
+    #NOmbre que se le da al diccionario del contexto para mostrar los datos en la plantilla
+    context_object_name = "list_tweets"
 
 
 def send_tweet(request):
