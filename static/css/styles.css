@@ -8,3 +8,9 @@
     margin-right: 0px !important; 
     margin-left: 0px !important;   
 }
+
+.profile-info img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
