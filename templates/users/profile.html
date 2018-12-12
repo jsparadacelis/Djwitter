@@ -10,21 +10,22 @@
             <span>
                 {{profile.bio}}
             </span>
-        <ul>
-            {% for follower in profile.seguidores.all %}
+            <button><a href="{% url 'follow_profile' profile.id %}">Seguir</a></button>
+            <ul>
+                {% for follower in profile.seguidores.all %}
 
-            <li><a href="{% url 'profile' follower.id %}">
-                {{follower.user.username}}
-            </a></li>
+                <li><a href="{% url 'profile' follower.id %}">
+                        {{follower.user.username}}
+                    </a></li>
 
-            {% endfor %}
-            
-        </ul>
+                {% endfor %}
+
+            </ul>
         </div>
-        <div  style="float:left">
+        <div style="float:left">
             {% include 'posts/feed.html' %}
         </div>
-            
+
 
     </div>
 
