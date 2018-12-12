@@ -16,5 +16,6 @@ class Perfil(models.Model):
     f_nacimiento = models.DateField(auto_now=False, auto_now_add=False)
     f_creacion = models.DateTimeField(auto_now=True, auto_now_add=False)
 
-
-    
+class Follow(models.Model):
+    perfil = models.ForeignKey(Perfil, related_name = "perfil", on_delete=models.CASCADE)
+    seguidor = models.ForeignKey(Perfil, related_name="seguidor", on_delete=models.CASCADE)

@@ -12,10 +12,10 @@
             </span>
             <button><a href="{% url 'follow_profile' profile.id %}">Seguir</a></button>
             <ul>
-                {% for follower in profile.seguidores.all %}
+                {% for follower in list_followers %}
 
-                <li><a href="{% url 'profile' follower.id %}">
-                        {{follower.user.username}}
+                <li><a href="{% url 'profile' follower.seguidor.id %}">
+                        {{follower.seguidor.user.username}}
                     </a></li>
 
                 {% endfor %}

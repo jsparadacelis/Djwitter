@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from .models import Perfil
+from .models import Perfil, Follow
 from feed.models import Tweet
 from django.http import HttpResponse
 
@@ -23,21 +23,27 @@ def view_profile(request, id):
 
     profile = Perfil.objects.get(id=id)
     list_tweets = Tweet.objects.filter(perfil_id=id)
+    list_followers = Follow.objects.filter(perfil = profile)
+
 
     return render(
         request, 
         'users/profile.html', 
         {
             "profile": profile,
-            "list_tweets": list_tweets
+            "list_tweets": list_tweets,
+            "list_followers": list_followers
         }
     )
 
 def follow_profile(request, id):
 
     profile_to_follow = Perfil.objects.get(id=id)
-    profile_to_follow.seguidor.add(request.user.perfil) 
-    profile_to_follow.save()
+    new_follower = Follow.objects.create(
+        perfil = profile_to_follow,
+        seguidor = request.user.perfil
+    )
+   
     print(profile_to_follow.user.username)
 
-    return HttpResponse("OK")
+    return redirect('/profile/'+str(id))
