@@ -46,4 +46,4 @@ def follow_profile(request, id):
    
     print(profile_to_follow.user.username)
 
-    return redirect('/profile/'+str(id))
+    return redirect(f'/profile/{id}')
