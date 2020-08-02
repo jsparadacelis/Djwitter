@@ -1,6 +1,6 @@
-/djwitter/__pycache__/*
-/djwitter/*.pyc
-/djwitter/feed/__pycache__/*
-/djwitter/feed/*.pyc
-/djwitter/users/__pycache__/*
-/djwitter/users/*.pyc
+.mypy_cache/
+.venv/
+.vscode/
+__pycache__
+*/__pycache__/*
+*.pyc
