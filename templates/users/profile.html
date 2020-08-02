@@ -1,34 +1,40 @@
 {% extends 'base.html' %}
 
+{% block content_profile %}
+
+<div class="col-md-12 profile-info">
+	<img src="{{profile.foto_perfil.url}}" alt="">
+	<h3>{{profile.user.username}}</h3>
+	<span>
+		{{profile.bio}}
+	</span>
+	<button><a href="{% url 'follow_profile' profile.id %}">Seguir</a></button>
+	<ul>
+		{% for follower in list_followers %}
+
+		<li><a href="{% url 'profile' follower.seguidor.id %}">
+				{{follower.seguidor.user.username}}
+			</a></li>
+
+		{% endfor %}
+
+	</ul>
+</div>
+
+{% endblock content_profile %}
+
 {% block content %}
 
-<div class="row">
-    <div class="container">
-        <div class="col-md-4 profile-info" style="float:left">
-            <img src="{{profile.foto_perfil.url}}" alt="">
-            <h3>{{profile.user.username}}</h3>
-            <span>
-                {{profile.bio}}
-            </span>
-            <button><a href="{% url 'follow_profile' profile.id %}">Seguir</a></button>
-            <ul>
-                {% for follower in list_followers %}
-
-                <li><a href="{% url 'profile' follower.seguidor.id %}">
-                        {{follower.seguidor.user.username}}
-                    </a></li>
-
-                {% endfor %}
-
-            </ul>
-        </div>
-        <div style="float:left">
-            {% include 'posts/feed.html' %}
-        </div>
-
-
-    </div>
-
+<div class="col-lg-12">
+	{% for tweet in list_tweets %}
+	<div class="tweet-container">
+		<a href="{% url 'profile' tweet.perfil.id %}">
+			<h3>{{tweet.perfil.user.username}}</h3>
+		</a>
+		<p>{{tweet.texto}}</p>
+		<p>{{tweet.f_escrito}}</p>
+	</div>
+	{% endfor %}
 </div>
 
 {% endblock content %}

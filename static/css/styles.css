@@ -1,16 +1,40 @@
-.tweet-container {
-    border: 1px #ccc solid;
-    border-radius: 6px;
-    padding: 7px;
-    margin: 5px;
+.column-data {
+    width: 30%;
 }
-.row {
-    margin-right: 0px !important; 
-    margin-left: 0px !important;   
+
+.column-left-side .panel-side{
+    height: 50%;
+}
+
+.column-left-side{
+    display: block;
+    text-align: center;
+}
+
+.feed-container{
+    margin-top: 5%;
+}
+
+form textarea {
+    border-color: #fff;
+
 }
 
 .profile-info img{
     width: 200px;
     height: 200px;
     border-radius: 50%;
+}
+
+.row {
+    margin-top: 3% !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.tweet-container {
+    border: 1px #ccc solid;
+    border-radius: 6px;
+    padding: 7px;
+    margin: 5px;
 }
